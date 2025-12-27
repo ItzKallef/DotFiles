@@ -26,10 +26,11 @@ call plug#end()
 
 
 set nocompatible
-
 set ruler
 
-syntax off
+colorscheme cursor-dark 
+
+syntax on
 
 set bs=2
 
@@ -38,12 +39,16 @@ set hlsearch
 set ignorecase
 
 set autoindent
-
 set smartindent
+
+set termguicolors
+hi Normal guibg=NONE ctermbg=NONE
 
 let g:ycm_enable_diagnostic_signs = 0
 let g:ycm_enable_diagnostic_highlighting = 0
 
+hi StatusLine guifg=#FFFFFF guibg=NONE
+hi StatusLineNC guifg=#FFFFFF guibg=NONE
 
 " Cursor shapes (Linux-compatible)
 
