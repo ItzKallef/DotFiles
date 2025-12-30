@@ -1,3 +1,4 @@
+"
 " Initialize vim-plug
 
 call plug#begin('~/.vim/plugged')
@@ -5,9 +6,11 @@ call plug#begin('~/.vim/plugged')
 
 
 " Plugins
-
+Plug 'ollykel/v-vim'
 Plug 'ctrlpvim/ctrlp.vim'           " fuzzy find files
-Plug 'Valloric/YouCompleteMe'
+" Plug 'Valloric/YouCompleteMe'
+" Using vim-plug
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdtree'
 Plug 'Exafunction/windsurf.vim', { 'branch': 'main' }
 Plug 'tomasiser/vim-code-dark'
@@ -19,10 +22,12 @@ Plug 'junegunn/fzf.vim'
 
 
 call plug#end()
-
+let g:fzf_binary = '/opt/homebrew/bin/fzf'  " Apple Silicon
 
 
 " Basic settings
+" Disable YouCompleteMe preview window
+set completeopt-=preview
 
 
 set nocompatible
@@ -156,8 +161,35 @@ vnoremap <leader>c :call nerdcommenter#Comment(0, "toggle")<CR>
 
 let g:fzf_action = { 'abort': ['ctrl-c', 'ctrl-g', 'esc'] }
 
-highlight Pmenu      ctermfg=white ctermbg=black guifg=#ffffff guibg=#000000
-highlight PmenuSel   ctermfg=black ctermbg=white guifg=#000000 guibg=#ffffff
-highlight PmenuSbar  ctermbg=black guibg=#000000
-highlight PmenuThumb ctermbg=white guibg=#ffffff
+"highlight Pmenu      ctermfg=white ctermbg=black guifg=#ffffff guibg=#000000
+"highlight PmenuSel   ctermfg=black ctermbg=white guifg=#000000 guibg=#ffffff
+"highlight PmenuSbar  ctermbg=black guibg=#000000
+"highlight PmenuThumb ctermbg=white guibg=#ffffff
 let g:NERDTreeNodeDelimiter = "\u00a0"
+
+let g:ycm_language_server = [
+\ {
+\   'name': 'html',
+\   'cmdline': ['$HOME/.npm/global/bin/vscode-html-language-server', '--stdio'],
+\   'filetypes': ['html'],
+\ },
+\ {
+\   'name': 'css',
+\   'cmdline': ['$HOME/.npm/global/bin/vscode-css-language-server', '--stdio'],
+\   'filetypes': ['css'],
+\ }
+\ ]
+
+" Disable all diagnostic signs in the gutter
+let g:coc_enable_locationlist = 0
+let g:coc_enable_virtual_text = 0
+
+" Optional: hide diagnostics completely
+autocmd User CocDiagnosticChangeSilent call coc#rpc#request('diagnostic/clear', [])
+inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : "\<CR>"
+" Use Enter to confirm coc.nvim completion
+highlight link CocError NONE
+highlight link CocWarning NONE
+highlight link CocInfo NONE
+highlight link CocHint NONE
+let g:loaded_matchparen=1
