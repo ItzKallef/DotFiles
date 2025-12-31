@@ -193,3 +193,4 @@ highlight link CocWarning NONE
 highlight link CocInfo NONE
 highlight link CocHint NONE
 let g:loaded_matchparen=1
+nnoremap <C-d> yyp
