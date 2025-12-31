@@ -7,11 +7,88 @@ opacity = 0.9
 startup_mode = "Maximized"
 
 [font]
-normal = { family = "ComicCode Nerd Font", style = "Regular" }
-bold = { family = "ComicCode Nerd Font", style = "Bold" }
-italic = { family = "ComicCode Nerd Font", style = "Italic" }
-bold_italic = { family = "ComicCode Nerd Font", style = "Bold Italic" }
-size = 15
+normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
+bold = { family = "JetBrainsMono Nerd Font", style = "Regular" }
+italic = { family = "JetBrainsMono Nerd Font", style = "Italic" }
+bold_italic = { family = "JetBrainsMono Nerd Font", style = "Bold Italic" }
+size = 20
+
+#[colors.bright]
+#black = "#505050"
+#blue = "#85C1FC"
+#cyan = "#83D6C5"
+#green = "#A3BE8C"
+#magenta = "#C582BF"
+#red = "#BF616A"
+#white = "#D8DEE9"
+#yellow = "#EBC88D"
+
+#[colors.normal]
+#black = "#2A2A2A"
+#blue = "#85C1FC"
+#cyan = "#88C0D0"
+#green = "#A3BE8C"
+#magenta = "#AA9BF5"
+#red = "#BF616A"
+#white = "#D8DEE9"
+#yellow = "#EFB080"
+
+#[colors.normal]
+#black = "#000000"
+#red = "#ff3b30"
+#green = "#4cd964"
+#yellow = "#ffcc00"
+#blue = "#007aff"
+#magenta = "#ff2d55"
+#cyan = "#5ac8fa"
+#white = "#ffffff"
+
+#[colors.bright]
+#black = "#686868"
+#red = "#ff3b30"
+#green = "#4cd964"
+#yellow = "#ffcc00"
+#blue = "#007aff"
+#magenta = "#ff2d55"
+#cyan = "#5ac8fa"
+#white = "#ffffff"
+#
+#[colors.primary]
+#background = "#1A1A1A"
+#foreground = "#D8DEE9"
+#background= "#121416"
+
+[colors.bright]
+black = '#404040'
+blue = '#11b5f6'
+cyan = '#00ffff'
+green = '#00ff00'
+magenta = '#ff00ff'
+red = '#ff0000'
+white = '#ffffff'
+yellow = '#ffff00'
+
+[colors.cursor]
+cursor = '#ffffff'
+text = '#000000'
+
+[colors.normal]
+black = '#000000'
+blue = '#1093f5'
+cyan = '#00cdcd'
+green = '#00cd00'
+magenta = '#cd00cd'
+red = '#cd0000'
+white = '#faebd7'
+yellow = '#cdcd00'
+
+[colors.primary]
+background = '#111416'
+foreground = '#eeeeec'
+
+[colors.selection]
+background = '#eeeeec'
+text = '#333333'
 
 [mouse]
 hide_when_typing = true
