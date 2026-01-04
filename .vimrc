@@ -1,3 +1,5 @@
+set term=xterm-256color
+
 "
 " Initialize vim-plug
 
@@ -28,12 +30,12 @@ let g:fzf_binary = '/opt/homebrew/bin/fzf'  " Apple Silicon
 " Basic settings
 " Disable YouCompleteMe preview window
 set completeopt-=preview
-
-
+let NERDTreeMinimalUI = 1
 set nocompatible
 set ruler
 
-colorscheme cursor-dark 
+
+"colorscheme cursor-dark 
 
 syntax on
 
@@ -46,15 +48,19 @@ set ignorecase
 set autoindent
 set smartindent
 
-set termguicolors
+"set termguicolors
 hi Normal guibg=NONE ctermbg=NONE
+
+autocmd FileType nerdtree setlocal laststatus=0
+autocmd BufWinLeave * if &filetype != 'nerdtree' | set laststatus=2 | endif
+
+
 
 let g:ycm_enable_diagnostic_signs = 0
 let g:ycm_enable_diagnostic_highlighting = 0
 
 hi StatusLine guifg=#FFFFFF guibg=NONE
 hi StatusLineNC guifg=#FFFFFF guibg=NONE
-
 " Cursor shapes (Linux-compatible)
 
 let &t_SI = "\<Esc>[5 q"
@@ -83,11 +89,11 @@ nmap <C-n> :NERDTreeToggle<CR>
 
 " Buffers
 
-nnoremap H :bprevious<CR>
+nnoremap H :bprevious!<CR>
 
-nnoremap L :bnext<CR>
+nnoremap L :bnext!<CR>
 
-nnoremap b :bdelete<CR>
+nnoremap b :bdelete!<CR>
 
 nnoremap gb :ls<CR>:b<Space>
 
@@ -161,10 +167,10 @@ vnoremap <leader>c :call nerdcommenter#Comment(0, "toggle")<CR>
 
 let g:fzf_action = { 'abort': ['ctrl-c', 'ctrl-g', 'esc'] }
 
-"highlight Pmenu      ctermfg=white ctermbg=black guifg=#ffffff guibg=#000000
-"highlight PmenuSel   ctermfg=black ctermbg=white guifg=#000000 guibg=#ffffff
-"highlight PmenuSbar  ctermbg=black guibg=#000000
-"highlight PmenuThumb ctermbg=white guibg=#ffffff
+highlight Pmenu      ctermfg=white ctermbg=black guifg=#ffffff guibg=#000000
+" highlight PmenuSel   ctermfg=black ctermbg=white guifg=#000000 guibg=#ffffff
+" highlight PmenuSbar  ctermbg=white guibg=#ffffff
+" highlight PmenuThumb ctermbg=white guibg=#ffffff
 let g:NERDTreeNodeDelimiter = "\u00a0"
 
 let g:ycm_language_server = [
@@ -188,9 +194,7 @@ let g:coc_enable_virtual_text = 0
 autocmd User CocDiagnosticChangeSilent call coc#rpc#request('diagnostic/clear', [])
 inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : "\<CR>"
 " Use Enter to confirm coc.nvim completion
-highlight link CocError NONE
-highlight link CocWarning NONE
-highlight link CocInfo NONE
-highlight link CocHint NONE
 let g:loaded_matchparen=1
+highlight CocMenuSel ctermbg=DarkBlue ctermfg=White guibg=#3a3a3a guifg=White
 nnoremap <C-d> yyp
+highlight CocUnderline gui=NONE guifg=NONE guibg=NONE
