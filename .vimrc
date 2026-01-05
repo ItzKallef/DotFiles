@@ -53,7 +53,7 @@ set smartindent
 hi Normal guibg=NONE ctermbg=NONE
 
 autocmd FileType nerdtree setlocal laststatus=0
-autocmd BufWinLeave * if &filetype != 'nerdtree' | set laststatus=2 | endif
+autocmd BufWinLeave + if &filetype != 'nerdtree' | set laststatus=2 | endif
 
 
 
