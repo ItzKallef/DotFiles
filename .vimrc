@@ -31,6 +31,7 @@ let g:fzf_binary = '/opt/homebrew/bin/fzf'  " Apple Silicon
 " Disable YouCompleteMe preview window
 set completeopt-=preview
 let NERDTreeMinimalUI = 1
+set laststatus=0
 set nocompatible
 set ruler
 
